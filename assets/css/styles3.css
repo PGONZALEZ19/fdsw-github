@@ -1,0 +1,254 @@
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav .logo {
+    font-size: 1.5em;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5em;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "filter"
+        "main";
+    gap: 20px;
+    padding: 20px;
+}
+
+.filter {
+    grid-area: filter;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.product-grid {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.product-card button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .pagination-list {
+    display: flex;
+    text-align: center;
+    list-style: none; /* Elimina los marcadores de lista */
+  }
+  
+  .pagination-list li {
+    margin: 0 5px;
+  }
+  
+  .pagination-prev,
+  .pagination-next {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 575px) {
+    .main-nav ul {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .container {
+        grid-template-areas: 
+            "filter"
+            "main";
+    }
+
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 80%;
+        height: 350px; /* Adjust the height as needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+    .product-card img {
+        max-width: 100%;
+        height: 200px; /* Ajusta el valor 150px según tus necesidades */
+        object-fit: cover;
+    }
+
+    .filter {
+        grid-area: filter;
+        margin-bottom: 0;
+    }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 576px) and (max-width: 991px) {
+    .main-nav ul {
+        display: flex;
+    }
+
+    .container {
+        grid-template-areas: 
+            "header header"
+            "filter filter"
+            "main main"
+            "footer footer";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .site-footer {
+        grid-area: footer;
+    }
+}
+
+/* Estilos para escritorios */
+@media (min-width: 992px) {
+    .main-nav ul {
+        display: flex;
+    }
+
+    .container {
+        grid-template-areas: 
+            "sidebar header"
+            "sidebar filter"
+            "sidebar main"
+            "sidebar footer";
+        grid-template-columns: 0.5fr 3.5fr;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-grid {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    .filter {
+        grid-column: span 2;
+        grid-area: sidebar;
+        padding: 10px;
+    }
+
+    .pagination {
+        grid-column: span 3;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .site-footer {
+        grid-area: footer;
+        align-self: end;
+    }
+}
